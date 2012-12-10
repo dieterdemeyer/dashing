@@ -8,6 +8,10 @@
 $background-color: #222;
 $text-color: #fff;
 
+$background-normal-color-1: #96bf48;
+$background-normal-color-2: #a7a72e;
+$text-normal-color: #fff;
+
 $background-warning-color-1: #eeae32;
 $background-warning-color-2: #ff9618;
 $text-warning-color: #fff;
@@ -16,6 +20,11 @@ $background-danger-color-1: #e82711;
 $background-danger-color-2: #9b2d23;
 $text-danger-color: #fff;
 
+@-webkit-keyframes status-warning-background {
+  0%   { background-color: $background-normal-color-1; }
+  50%  { background-color: $background-normal-color-2; }
+  100% { background-color: $background-normal-color-1; }
+}
 @-webkit-keyframes status-warning-background {
   0%   { background-color: $background-warning-color-1; }
   50%  { background-color: $background-warning-color-2; }
@@ -146,6 +155,19 @@ h3 {
   width: 100%;
   display: table-cell;
   vertical-align: middle;
+}
+
+.widget.status-normal {
+  background-color: $background-normal-color-1;
+  @include animation(status-normal-background, 2s, ease, infinite);
+
+  .icon-warning-sign {
+    display: inline-block;
+  }
+
+  .title, .more-info {
+    color: $text-normal-color;
+  }
 }
 
 .widget.status-warning {
